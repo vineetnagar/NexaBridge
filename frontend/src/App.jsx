@@ -1,16 +1,22 @@
-import { useState } from "react";
-import heroImg from "./assets/hero.png";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "./assets/vite.svg";
-import "./App.css";
+import { Routes, Route } from "react-router-dom";
+
 import NavBar from "../components/NavBar/NavBar";
 import SwapBarBox from "../components/swapBarBox/swapBarBox";
+import AboutUs from "./pages/AboutUs";
+
+import "./App.css";
 
 function App() {
   return (
     <>
       <NavBar />
-      <SwapBarBox />
+
+      <main>
+        <Routes>
+          <Route path="/" element={<SwapBarBox />} />
+          <Route path="/about-us" element={<AboutUs />} />
+        </Routes>
+      </main>
     </>
   );
 }

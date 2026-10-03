@@ -327,3 +327,5 @@
   font-size: 0.7rem;
   text-decoration: underline;
 }
+@media (min-width: 374px) and (max-width: 575px) {
+}

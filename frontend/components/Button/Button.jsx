@@ -5,7 +5,8 @@ const Button = ({ btnName, icon }) => {
   return (
     <div className={Style.box}>
       <button className={Style.button}>
-        <span className={Style.icon}>{icon}</span> &nbsp; &nbsp; {btnName}
+        <span className={Style.icon}>{icon}</span> &nbsp; &nbsp;
+        <span className={Style.btnName}>{btnName}</span>
       </button>
     </div>
   );

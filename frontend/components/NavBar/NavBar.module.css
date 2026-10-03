@@ -1,7 +1,6 @@
 .navbar {
   height: 4rem;
-  background-color: rgba(8, 15, 31, 0.65);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(12px);
   position: fixed;
   top: 0;
@@ -92,6 +91,96 @@
 }
 .resources_element:hover {
   color: #94a3b8;
+}
+@media (max-width: 260px) {
+  .website_logo {
+    display: none;
+  }
+}
+@media (max-width: 373px) {
+  .navbar {
+    padding-top: 1rem;
+  }
+  .website_logo {
+    height: 2rem;
+    width: 2rem;
+  }
+  .navbar_container_left_heading {
+    display: none;
+  }
+  .navbar_container_left_links {
+    display: none;
+  }
+
+  .navbar_container_right {
+    display: flex;
+    gap: 2rem;
+  }
+  .navbar_container_right_menu {
+    display: block;
+    font-size: x-large;
+  }
+  /* .resources_list {
+    display: block;
+    width: 10rem;
+    height: max-content;
+    border: 1px solid white;
+    border-radius: 10px;
+  } */
+}
+@media (min-width: 374px) and (max-width: 575px) {
+  .navbar {
+    padding-top: 1rem;
+  }
+  .navbar_container_left_heading {
+    display: none;
+  }
+  .navbar_container_left_links {
+    display: none;
+  }
+
+  .navbar_container_right {
+    display: flex;
+    gap: 2rem;
+  }
+  .navbar_container_right_menu {
+    display: block;
+    font-size: xx-large;
+  }
+  /* .resources_list {
+    display: block;
+    width: 10rem;
+    height: max-content;
+    border: 1px solid white;
+    border-radius: 10px;
+  } */
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .navbar {
+    padding-top: 1rem;
+  }
+  .navbar_container_left_heading {
+    display: none;
+  }
+  .navbar_container_left_links {
+    display: none;
+  }
+
+  .navbar_container_right {
+    display: flex;
+    gap: 2rem;
+  }
+  .navbar_container_right_menu {
+    display: block;
+    font-size: xx-large;
+  }
+  /* .resources_list {
+    display: block;
+    width: 10rem;
+    height: max-content;
+    border: 1px solid white;
+    border-radius: 10px;
+  } */
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .navbar {
