@@ -6,14 +6,16 @@ import { IoMenu } from "react-icons/io5";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
 import { RiTwitterXLine } from "react-icons/ri";
 import { FaTelegramPlane, FaLinkedin } from "react-icons/fa";
+import Button from "../Button/Button";
+import { LuRabbit } from "react-icons/lu";
 
 const NavBar = () => {
   const [icon, openIcon] = useState(false);
   const openResources = () => {
-    if (icon) {
-      openIcon(false);
-    } else {
+    if (!icon) {
       openIcon(true);
+    } else {
+      openIcon(false);
     }
   };
 
@@ -39,8 +41,8 @@ const NavBar = () => {
                 <p>Overview</p>
                 <p>Value Transfer API</p>
                 <p onClick={() => openResources()}>
-                  Resources {icon ? <MdArrowDropDown /> : <MdArrowDropUp />}
-                  {!icon && (
+                  Resources {icon ? <MdArrowDropUp /> : <MdArrowDropDown />}
+                  {icon && (
                     <div className={Style.resources_list}>
                       <div className={Style.resources_list1}>
                         <p>Developers</p>
@@ -72,9 +74,11 @@ const NavBar = () => {
           </div>
 
           <div className={Style.navbar_container_right}>
-            <div className={Style.navbar_container_account_btn}>
-              🐇 <span>0x3c..e3e3</span>
-            </div>
+            <Button
+              btnName="Connect wallet"
+              icon={<LuRabbit />}
+              className={Style.navbar_container_account_btn}
+            ></Button>
             <div
               className={Style.navbar_container_right_menu}
               onClick={() => openResources()}

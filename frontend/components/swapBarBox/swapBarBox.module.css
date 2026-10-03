@@ -1,0 +1,329 @@
+.swapBarBox {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3.5rem;
+}
+.swapBarBox_container {
+  width: 25rem;
+}
+.swapBarBox_setting {
+  text-align: end;
+}
+
+.swapBarBox_setting p {
+  font-size: 0.8rem;
+}
+
+.swapBarBox_transferSwap_box {
+  width: 25rem;
+  border-radius: 20px;
+  display: flex;
+  margin-top: 0.2rem;
+  background-color: #101522;
+  padding: 0.3rem 0;
+  justify-content: space-around;
+}
+
+.swapBarBox_transferSwap_box svg {
+  color: green;
+}
+
+.swapBarBox_transferSwap_box_transfer {
+  background: none;
+  border-radius: 30px;
+  padding: 0.2rem 3rem;
+  box-sizing: border-box;
+}
+.swapBarBox_transferSwap_box_swap {
+  border-radius: 30px;
+  padding: 0.2rem 3rem;
+  box-sizing: border-box;
+}
+.swapBarBox_transferSwap_box_swap p:hover {
+  color: green;
+}
+
+.swapBarBox_transferSwap_box_transfer p:hover {
+  color: green;
+}
+
+.selected {
+  background: rgba(34, 197, 94, 0.12);
+  color: white;
+}
+
+.selected p {
+  color: green;
+}
+
+.swapBarBox_transferSwapFrom_box {
+  width: 25rem;
+  background-color: #151c2b;
+  border-radius: 20px;
+  margin-top: 0.5rem;
+  box-sizing: border-box;
+  display: flow-root;
+}
+
+.swapBarBox_transferSwapFrom_box_accAddress p {
+  font-size: 0.7rem;
+  text-decoration: underline;
+  box-sizing: border-box;
+  padding: 0.3rem 1rem;
+}
+.swapBarBox_transferSwapFrom_box_mainSelectBox {
+  background-color: #101522;
+  border-radius: 20px;
+  padding: 0.8rem 1rem;
+}
+
+.swapBarBox_transferSwapFrom_box_mainSelectBox_selectChain {
+  display: flex;
+  justify-content: space-between;
+}
+
+.swapBarBox_transferSwapFrom_box_mainSelectBox_selectChain_nameIcon {
+  display: flex;
+  line-height: 1rem;
+  gap: 1rem;
+}
+.swapBarBox_transferSwapFrom_box_mainSelectBox_selectChain_nameIcon svg {
+  font-size: 1.1rem;
+  border-radius: 50%;
+  background-color: black;
+  padding: 0.5rem 0.5rem;
+}
+.swapBarBox_transferSwapFrom_box_mainSelectBox_selectChain_nameIcon
+  p:nth-child(1) {
+  font-size: 0.9rem;
+  color: #fff;
+}
+.swapBarBox_transferSwapFrom_box_mainSelectBox_selectChain_nameIcon
+  p:nth-child(2) {
+  font-size: 0.6rem;
+}
+
+.swapBarBox_transferSwapFrom_box_mainSelectBox_selectChain_listIcon svg {
+  border: 1px solid #94a3b8;
+  border-radius: 50%;
+  padding: 0.2rem 0.2rem;
+  font-size: 0.8rem;
+  margin-right: 0.8rem;
+}
+.swapBarBox_transferSwapFrom_box_selectAmountBox1 {
+  display: flex;
+  margin: 1rem;
+  margin-left: 0;
+}
+
+.swapBarBox_transferSwapFrom_box_selectAmountBox1 input {
+  outline: none;
+  border: none;
+  background: none;
+  color: #94a3b8;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.swapBarBox_transferSwapFrom_box_selectAmountBox1_typeAmount::-webkit-inner-spin-button,
+.swapBarBox_transferSwapFrom_box_selectAmountBox1_typeAmount::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.swapBarBox_transferSwapFrom_box_selectAmountBox1_rightSection {
+  display: flex;
+  gap: 0.4rem;
+  margin-left: 2.5rem;
+}
+
+.swapBarBox_transferSwapFrom_box_selectAmountBox2 {
+  display: flex;
+  justify-content: space-between;
+}
+.swapBarBox_transferSwapFrom_box_selectAmountBox1_rightSection_item1 {
+  border: 1px solid #94a3b8;
+  border-radius: 30px;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.7rem;
+}
+.swapBarBox_transferSwapFrom_box_selectAmountBox1_rightSection_item2 {
+  border: 1px solid #94a3b8;
+  border-radius: 30px;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.swapBarBox_transferSwapFrom_box_selectAmountBox1_rightSection_item2 p {
+  font-size: 0.6rem;
+  color: #fff;
+}
+
+.swapBarBox_transferSwapFrom_box_selectAmountBox2_chainValue {
+  font-size: 0.8rem;
+}
+
+.swapBarBox_transferSwapFrom_box_selectAmountBox2_loaderBox {
+  height: 0.3rem;
+  width: 4rem;
+  background-color: #151c2b;
+  margin-top: 0.7rem;
+  margin-right: 1rem;
+  border-radius: 30px;
+}
+
+/*TransferSwap to Box css*/
+
+.swapBarBox_transferSwapTo_box {
+  width: 25rem;
+  background-color: #151c2b;
+  border-radius: 20px;
+  margin-top: 0.5rem;
+  box-sizing: border-box;
+  display: flow-root;
+}
+.swapBarBox_transferSwapTo_box_customBox {
+  display: flex;
+  justify-content: space-between;
+}
+.swapBarBox_transferSwapTo_box_customBox_accAddress p {
+  font-size: 0.7rem;
+  text-decoration: underline;
+  box-sizing: border-box;
+  padding: 0.3rem 1rem;
+}
+
+.swapBarBox_transferSwapTo_box_customBox_selectCustomAddress p {
+  font-size: 0.7rem;
+  box-sizing: border-box;
+  padding: 0.3rem 1rem;
+}
+
+.swapBarBox_transferSwapTo_box_mainSelectBox {
+  background-color: #101522;
+  border-radius: 20px;
+  padding: 0.8rem 1rem;
+}
+
+.swapBarBox_transferSwapTo_box_mainSelectBox_selectChain {
+  display: flex;
+  justify-content: space-between;
+}
+
+.swapBarBox_transferSwapTo_box_mainSelectBox_selectChain_nameIcon {
+  display: flex;
+  line-height: 1rem;
+  gap: 1rem;
+}
+.swapBarBox_transferSwapTo_box_mainSelectBox_selectChain_nameIcon svg {
+  font-size: 1.1rem;
+  border-radius: 50%;
+  background-color: black;
+  padding: 0.5rem 0.5rem;
+}
+.swapBarBox_transferSwapTo_box_mainSelectBox_selectChain_nameIcon
+  p:nth-child(1) {
+  font-size: 0.9rem;
+  color: #fff;
+}
+.swapBarBox_transferSwapTo_box_mainSelectBox_selectChain_nameIcon
+  p:nth-child(2) {
+  font-size: 0.6rem;
+}
+
+.swapBarBox_transferSwapTo_box_mainSelectBox_selectChain_listIcon svg {
+  border: 1px solid #94a3b8;
+  border-radius: 50%;
+  padding: 0.2rem 0.2rem;
+  font-size: 0.8rem;
+  margin-right: 0.8rem;
+}
+.swapBarBox_transferSwapTo_box_selectAmountBox1 {
+  display: flex;
+  margin: 1rem;
+  margin-left: 0;
+}
+
+.swapBarBox_transferSwapTo_box_selectAmountBox1 input {
+  outline: none;
+  border: none;
+  background: none;
+  color: #94a3b8;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.swapBarBox_transferSwapTo_box_selectAmountBox1_typeAmount::-webkit-inner-spin-button,
+.swapBarBox_transferSwapTo_box_selectAmountBox1_typeAmount::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.swapBarBox_transferSwapTo_box_selectAmountBox1_rightSection {
+  display: flex;
+  gap: 0.4rem;
+  margin-left: 2.5rem;
+}
+
+.swapBarBox_transferSwapTo_box_selectAmountBox2 {
+  display: flex;
+  justify-content: space-between;
+}
+.swapBarBox_transferSwapTo_box_selectAmountBox1_rightSection_item1 {
+  border: 1px solid #94a3b8;
+  border-radius: 30px;
+  padding: 0 0.5rem;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+}
+.swapBarBox_transferSwapTo_box_selectAmountBox1_rightSection_item2 {
+  border: 1px solid #94a3b8;
+  border-radius: 30px;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.swapBarBox_transferSwapTo_box_selectAmountBox1_rightSection_item2 p {
+  font-size: 0.6rem;
+  color: #fff;
+}
+
+.swapBarBox_transferSwapTo_box_selectAmountBox2_chainValue {
+  font-size: 0.8rem;
+}
+
+.swapBarBox_transferSwapTo_box_selectAmountBox2_loaderBox {
+  height: 0.3rem;
+  width: 4rem;
+  background-color: #151c2b;
+  margin-top: 0.7rem;
+  margin-right: 1rem;
+  border-radius: 30px;
+}
+.connectWalletBtn {
+  margin-top: 1rem;
+}
+.connectWalletBtn_btn {
+  width: 25rem;
+  border-radius: 30px;
+  padding: 0.4rem 0;
+  background-color: #fff;
+  color: black;
+  font-size: medium;
+  font-weight: 700;
+}
+
+.connectWalletBtn_btn:hover {
+  background-color: #b8c1cc;
+}
+
+.swapBarBox_container_footerText p {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.7rem;
+  text-decoration: underline;
+}

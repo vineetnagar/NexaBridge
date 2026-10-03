@@ -1,6 +1,13 @@
 .navbar {
   height: 4rem;
-  background-color: transparent;
+  background-color: rgba(8, 15, 31, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .navbar_container {
@@ -33,11 +40,10 @@
   display: flex;
   gap: 2rem;
   text-decoration: none;
-  font-size: 0.9rem;
   color: #94a3b8;
 }
 
-.navbar_container_left_links a:hover {
+.navbar_container_left_links p:hover {
   color: #fff;
 }
 
@@ -66,6 +72,10 @@
   box-shadow: 0 4px 20px rgba(79, 140, 255, 0.12);
 }
 
+.resources_list:hover {
+  background-color: #151c2b;
+}
+
 .resources_list1 {
   padding-left: 1rem;
   padding-top: 0.3rem;
@@ -80,8 +90,8 @@
   margin-left: 1rem;
   gap: 1.5rem;
 }
-.resources_element {
-  color: #fff;
+.resources_element:hover {
+  color: #94a3b8;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .navbar {
@@ -92,15 +102,6 @@
   }
   .navbar_container_left_links {
     display: none;
-  }
-  .navbar_container_account_btn {
-    height: 2rem;
-    width: 10rem;
-    border: 1px solid #94a3b8;
-    border-radius: 20px;
-    font-size: 1.2rem;
-    text-align: center;
-    line-height: 2rem;
   }
 
   .navbar_container_right {

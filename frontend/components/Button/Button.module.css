@@ -1,0 +1,21 @@
+.button {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(79, 140, 255, 0.12);
+  outline: none;
+  background-color: #101522;
+  border: 1px solid #202a3a;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+}
+
+.button:hover {
+  background-color: #151c2b;
+}
+
+.icon {
+  font-size: 1.2rem;
+}
