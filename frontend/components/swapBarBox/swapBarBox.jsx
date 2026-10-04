@@ -226,6 +226,7 @@ const SwapBarBox = () => {
         </div>
 
         <div className={Style.swapBarBox_container_footerText}>
+          <p>Advanced Mode</p>
           <p>Powered by Vineet Nagar</p>
         </div>
       </div>

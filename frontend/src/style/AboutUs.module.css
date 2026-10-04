@@ -1,0 +1,225 @@
+.aboutUs {
+  margin-top: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aboutUs_container_heroText h2,
+.aboutUs_container_questionsBlock_heroText h2 {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+.aboutUs_container_heroText h2:nth-child(2),
+.aboutUs_container_questionsBlock_heroText h2:nth-child(2) {
+  color: #0fb983;
+}
+.aboutUs_container_heroText p,
+.aboutUs_container_questionsBlock_heroText p {
+  text-align: center;
+  font-weight: 600;
+}
+.aboutUs_container_joinUsBlocks {
+  display: flex;
+  gap: 1rem;
+  margin-top: 4rem;
+}
+
+.aboutUs_container_joinUsBlocks_Telegram_block,
+.aboutUs_container_joinUsBlocks_Twitter_block,
+.aboutUs_container_joinUsBlocks_Linkedin_block {
+  height: 15rem;
+  width: 20rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(79, 140, 255, 0.12);
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.aboutUs_container_joinUsBlocks_Telegram_block,
+.aboutUs_container_joinUsBlocks_Twitter_block,
+.aboutUs_container_joinUsBlocks_Linkedin_block {
+  position: relative;
+  overflow: hidden;
+  background: #0b1220;
+  transition: transform 0.4s ease;
+}
+
+.aboutUs_container_joinUsBlocks_Telegram_block:hover,
+.aboutUs_container_joinUsBlocks_Twitter_block:hover,
+.aboutUs_container_joinUsBlocks_Linkedin_block:hover {
+  transform: scale(0.97);
+}
+.aboutUs_container_joinUsBlocks_Telegram_block::before,
+.aboutUs_container_joinUsBlocks_Twitter_block::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: blur(4px);
+  opacity: 0.25;
+
+  transform: scale(1.05);
+  transition: transform 0.5s ease;
+}
+
+.aboutUs_container_joinUsBlocks_Telegram_block::before {
+  background-image: url("./TelegramImg.jpg");
+}
+
+.aboutUs_container_joinUsBlocks_Twitter_block::before {
+  background-image: url("./TwitterImg.jpg");
+}
+
+.aboutUs_container_joinUsBlocks_Linkedin_block::before {
+  background-image: url("./LinkedinImg.jpg");
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: blur(4px);
+  opacity: 0.25;
+
+  transform: scale(1.05);
+  transition: transform 0.5s ease;
+}
+.aboutUs_container_joinUsBlocks_Telegram_block:hover::before,
+.aboutUs_container_joinUsBlocks_Twitter_block:hover::before,
+.aboutUs_container_joinUsBlocks_Linkedin_block:hover::before {
+  transform: scale(1.15);
+}
+
+.aboutUs_container_joinUsBlocks_Telegram_block > *,
+.aboutUs_container_joinUsBlocks_Twitter_block > *,
+.aboutUs_container_joinUsBlocks_Linkedin_block > * {
+  position: relative;
+  z-index: 1;
+}
+
+.aboutUs_container_joinUsBlocks_Telegram_block:hover
+  .aboutUs_container_joinUsBlocks_Telegram_block_top_right
+  svg,
+.aboutUs_container_joinUsBlocks_Twitter_block:hover
+  .aboutUs_container_joinUsBlocks_Twitter_block_top_right
+  svg,
+.aboutUs_container_joinUsBlocks_Linkedin_block:hover
+  .aboutUs_container_joinUsBlocks_Linkedin_block_top_right
+  svg {
+  color: #22c55e;
+}
+.aboutUs_container_joinUsBlocks_Telegram_block_top,
+.aboutUs_container_joinUsBlocks_Twitter_block_top,
+.aboutUs_container_joinUsBlocks_Linkedin_block_top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.aboutUs_container_joinUsBlocks_Telegram_block_top_left,
+.aboutUs_container_joinUsBlocks_Twitter_block_top_left,
+.aboutUs_container_joinUsBlocks_Linkedin_block_top_left {
+  display: flex;
+  align-items: center;
+}
+
+.aboutUs_container_joinUsBlocks_Telegram_block_top_left svg,
+.aboutUs_container_joinUsBlocks_Twitter_block_top_left svg,
+.aboutUs_container_joinUsBlocks_Linkedin_block_top_left svg {
+  font-size: 1.2rem;
+}
+.aboutUs_container_joinUsBlocks_Telegram_block_top_left span,
+.aboutUs_container_joinUsBlocks_Twitter_block_top_left span,
+.aboutUs_container_joinUsBlocks_Linkedin_block_top_left span {
+  color: #fff;
+  margin-left: 0.5rem;
+}
+
+.aboutUs_container_joinUsBlocks_Telegram_block_top_right svg,
+.aboutUs_container_joinUsBlocks_Twitter_block_top_right svg,
+.aboutUs_container_joinUsBlocks_Linkedin_block_top_right svg {
+  font-size: 1.3rem;
+  border-radius: 10px;
+  background-color: #151c2b;
+  color: #94a3b8;
+}
+
+.aboutUs_container_joinUsBlocks_Telegram_block_bottom,
+.aboutUs_container_joinUsBlocks_Twitter_block_bottom,
+.aboutUs_container_joinUsBlocks_Linkedin_block_bottom {
+  display: flex;
+  gap: 1rem;
+}
+.aboutUs_container_joinUsBlocks_Telegram_block_bottom_box,
+.aboutUs_container_joinUsBlocks_Twitter_block_bottom_box,
+.aboutUs_container_joinUsBlocks_Linkedin_block_bottom_box {
+  background-color: #151c2b;
+  color: #94a3b8;
+  border-radius: 20px;
+  padding: 0.2rem 0.4rem;
+  box-sizing: border-box;
+  font-size: 0.7em;
+}
+
+.aboutUs_container_questionsBlock {
+  margin-top: 6rem;
+}
+.aboutUs_container_questionsBlock_block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.aboutUs_container_questionsBlock_question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+.aboutUs_container_questionsBlock_question_box {
+  width: 35rem;
+  padding: 0.5rem 2rem;
+  border: 1px solid #94a3b8;
+  border-radius: 20px;
+  margin-top: 1rem;
+  background-color: #151c2b;
+}
+.aboutUs_container_questionsBlock_question_box_main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.questionIcon {
+  border-radius: 6px;
+  padding: 2px;
+  background-color: black;
+}
+.aboutUs_container_questionsBlock_question_box_info {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows 0.7s ease;
+}
+.aboutUs_container_questionsBlock_question_box_info p {
+  width: 30rem;
+  text-align: justify;
+
+  font-size: 0.7rem;
+  min-height: 0;
+  margin-left: 1.5rem;
+  margin-top: 0.3rem;
+}
+
+.aboutUs_container_questionsBlock_question_box_info.open {
+  grid-template-rows: 1fr;
+}
