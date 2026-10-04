@@ -1,0 +1,26 @@
+.footer {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(12px);
+  text-align: center;
+  margin-top: 4rem;
+  padding-top: 1rem;
+}
+
+.footer_container_headings,
+.footer_container_subInfo {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+.footer_container_subInfo p {
+  color: #fff;
+}
+.footer_container_headings p,
+.footer_container_subInfo > div {
+  margin: 0;
+}
+
+.footer_container_subInfo > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

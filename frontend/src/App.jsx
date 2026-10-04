@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-
+import Footer from "../components/Footer/Footer";
 import NavBar from "../components/NavBar/NavBar";
 import SwapBarBox from "../components/swapBarBox/swapBarBox";
 import AboutUs from "./pages/AboutUs";
@@ -17,6 +17,7 @@ function App() {
           <Route path="/about-us" element={<AboutUs />} />
         </Routes>
       </main>
+      <Footer />
     </>
   );
 }

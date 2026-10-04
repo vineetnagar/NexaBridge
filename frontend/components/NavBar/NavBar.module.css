@@ -75,9 +75,18 @@
   background-color: #151c2b;
 }
 
-.resources_list1 {
+.resources_list1,
+.resources_list2 {
   padding-left: 1rem;
   padding-top: 0.3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.resources_list1 a,
+.resources_list2 a {
+  text-decoration: none;
+  color: #fff;
 }
 
 .resources_list2 {

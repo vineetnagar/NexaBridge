@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Style from "./NavBar.module.css";
+import { Link } from "react-router-dom";
 import nexaBridgeLogo from "../../img/nexaBridgeLogo.svg";
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 import { IoMenu } from "react-icons/io5";
@@ -46,25 +47,37 @@ const NavBar = () => {
                     <div className={Style.resources_list}>
                       <div className={Style.resources_list1}>
                         <p>Developers</p>
-                        <p className={Style.resources_element}>GitHub</p>
-                        <p className={Style.resources_element}>Docs</p>
+                        <Link
+                          to="https://github.com/vineetnagar"
+                          className={Style.resources_element}
+                        >
+                          GitHub
+                        </Link>
+                        <Link
+                          to="https://github.com/vineetnagar/NexaBridge"
+                          className={Style.resources_element}
+                        >
+                          Docs
+                        </Link>
                       </div>
                       <div className={Style.resources_list2}>
                         <p>Learn</p>
-                        <p className={Style.resources_element}>FAQ</p>
-                        <p className={Style.resources_element}>About</p>
+                        <Link className={Style.resources_element}>FAQ</Link>
+                        <Link to="about-us" className={Style.resources_element}>
+                          About
+                        </Link>
                       </div>
                       <hr />
                       <div className={Style.resources_list_social}>
-                        <p>
+                        <Link to="https://x.com/VNagar26340">
                           <RiTwitterXLine />
-                        </p>
+                        </Link>
                         <p>
                           <FaTelegramPlane />
                         </p>
-                        <p>
+                        <Link to="https://www.linkedin.com/in/dhakad-vineet-53722131a/">
                           <FaLinkedin />
-                        </p>
+                        </Link>
                       </div>
                     </div>
                   )}
