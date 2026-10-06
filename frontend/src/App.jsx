@@ -5,21 +5,23 @@ import SwapBarBox from "../components/swapBarBox/swapBarBox";
 import AboutUs from "./pages/AboutUs";
 
 import "./App.css";
+import Stake from "./pages/Stake";
 
 function App() {
   return (
-    <>
+    <div className="app">
       <NavBar />
 
-      <main>
+      <main className="main">
         <Routes>
           <Route path="/" element={<SwapBarBox />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/stake" element={<Stake />} />
         </Routes>
       </main>
+
       <Footer />
-    </>
+    </div>
   );
 }
-
 export default App;

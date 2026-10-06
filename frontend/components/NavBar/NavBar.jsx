@@ -38,7 +38,7 @@ const NavBar = () => {
             </div>
             <div className={Style.navbar_container_left_links}>
               <ul>
-                <p>Stake</p>
+                <Link to="/stake">Stake</Link>
                 <p>Overview</p>
                 <p>Value Transfer API</p>
                 <p onClick={() => openResources()}>

@@ -1,0 +1,122 @@
+.stake {
+  display: flex;
+  margin-top: 6rem;
+  justify-content: center;
+}
+.stake_container_headings h1 {
+  text-align: center;
+}
+
+.stake_container_headings p {
+  width: 35rem;
+  text-align: center;
+  font-size: 0.8rem;
+}
+.stake_container_selectNetwork {
+  width: 60rem;
+  background-color: #101522;
+  margin-top: 2rem;
+  border-radius: 10px;
+  padding: 0.4rem 0;
+}
+
+.stake_container_selectNetwork_claimFeesBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.2rem 2rem;
+}
+
+.stake_container_selectNetwork_claimFeesBox_left {
+  width: 12rem;
+  height: 2.2rem;
+  border-radius: 7px;
+  background-color: #151c2b;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #94a3b8;
+}
+.stake_container_selectNetwork_claimFeesBox_left svg {
+  font-size: 1.5rem;
+  margin-top: 0.7rem;
+}
+.stake_container_selectNetwork_claimFeesBox_right {
+  display: flex;
+  gap: 2rem;
+}
+.stake_container_selectNetwork_claimFeesBox_right p {
+  text-decoration: underline;
+  font-size: 0.7rem;
+}
+.stake_container_selectNetwork_claimFeesBox_right_networkList {
+  border: 1px solid white;
+  padding: 0.1rem 0.4rem;
+  border-radius: 7px;
+  font-size: 0.8rem;
+  background-color: darkslateblue;
+}
+.stake_container_claimed_feesData {
+  width: 60rem;
+  border: 1px dotted #94a3b8;
+  height: 10rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.stake_container_stakedDataBoxes {
+  display: flex;
+  gap: 1rem;
+  margin-top: 4rem;
+}
+.stake_container_stakedDataBoxes_STGLocked {
+  width: 28rem;
+  height: 13rem;
+  border-radius: 20px;
+  background-color: #151c2b;
+  box-shadow: 0 4px 20px rgba(79, 140, 255, 0.12);
+
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.stake_container_stakedDataBoxes_STGLocked_top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4.5rem;
+}
+
+.stake_container_stakedDataBoxes_STGLocked_top span p {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.stake_container_stakedDataBoxes_STGLocked_top p {
+  font-size: 0.7rem;
+}
+.verticalLine {
+  width: 1px;
+  height: 100%;
+  background-color: #fff;
+}
+.stake_container_stakedDataBoxes_STGLocked_bottom_data {
+  display: flex;
+  gap: 4rem;
+}
+.stake_container_stakedDataBoxes_STGLocked_bottom_data p {
+  font-size: 0.7rem;
+}
+
+.stake_container_stakedDataBoxes_STGLocked_bottom_data span p {
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
