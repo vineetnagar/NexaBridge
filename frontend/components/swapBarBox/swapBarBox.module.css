@@ -78,6 +78,8 @@
   background-color: #101522;
   border-radius: 20px;
   padding: 0.8rem 1rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .swapBarBox_transferSwapFrom_box_mainSelectBox_selectChain {
@@ -213,17 +215,25 @@
   display: flex;
   justify-content: space-between;
 }
-
+.swapBarBox_transferSwapFrom_box_mainSelectBox {
+  display: flex;
+  flex-direction: column;
+}
 .swapBarBox_transferSwapTo_box_mainSelectBox_selectChain_nameIcon {
   display: flex;
   line-height: 1rem;
   gap: 1rem;
 }
-.swapBarBox_transferSwapTo_box_mainSelectBox_selectChain_nameIcon svg {
+.swapBarBox_transferSwapTo_box_mainSelectBox_selectChain_nameIcon_svg {
   font-size: 1.1rem;
   border-radius: 50%;
-  background-color: black;
   padding: 0.5rem 0.5rem;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  background-color: #151c2b;
+  display: flex;
+  justify-content: center;
 }
 .swapBarBox_transferSwapTo_box_mainSelectBox_selectChain_nameIcon
   p:nth-child(1) {
@@ -327,5 +337,93 @@
   font-size: 0.7rem;
   text-decoration: underline;
 }
-@media (min-width: 374px) and (max-width: 575px) {
+
+/*Transfer Chain Token List*/
+
+.transfer_box_ChainTokenList {
+  background-color: #101522;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+
+  animation: openChainList 0.3s ease-out;
+  transform-origin: top;
+}
+@keyframes openChainList {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+.transfer_box_ChainTokenList_container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem 0;
+}
+.transfer_box_ChainTokenList_container:hover {
+  background-color: #151c2b;
+}
+.transfer_box_ChainTokenList_searchBar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 3rem;
+  align-items: center;
+}
+.transfer_box_ChainTokenList_searchBar input {
+  width: 17rem;
+  height: 2rem;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-color: #151c2b;
+  padding-left: 1rem;
+  outline: #94a3b8;
+  color: #94a3b8;
+}
+.transfer_box_ChainTokenList_container_left {
+  margin-left: 1rem;
+}
+.transfer_box_ChainTokenList_container_left_icon {
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  background-color: #fff;
+  text-align: center;
+  color: black;
+  font-weight: 700;
+}
+.transfer_box_ChainTokenList_container_left {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.transfer_box_ChainTokenList_container_left_chainTokenName {
+  line-height: 1rem;
+}
+.transfer_box_ChainTokenList_container_left_chainTokenName p:nth-child(1) {
+  color: #fff;
+  font-size: 0.8rem;
+}
+.transfer_box_ChainTokenList_container_left_chainTokenName p:nth-child(2) {
+  font-size: 0.7rem;
+}
+.transfer_box_ChainTokenList_container_right {
+  line-height: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 1rem;
+}
+.transfer_box_ChainTokenList_container_right p {
+  font-size: 0.8rem;
 }

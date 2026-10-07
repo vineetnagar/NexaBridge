@@ -1,14 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Style from "./swapBarBox.module.css";
 import { TbSettings2 } from "react-icons/tb";
 import { TbTransferIn } from "react-icons/tb";
 import { RiSwap2Line } from "react-icons/ri";
-import { SiSolana } from "react-icons/si";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import { FiLink2 } from "react-icons/fi";
-import Button from "../Button/Button";
 const SwapBarBox = () => {
   const [selected, setSelected] = useState(0);
+  const [openFromList, setOpenFromList] = useState(false);
+  const [openToList, setOpenToList] = useState(false);
+  const [tokens, setTokens] = useState([]);
+  const [chains, setChains] = useState([]);
+  const [selectedFromChain, setSelectedFromChain] = useState(null);
+  const [selectedToChain, setSelectedToChain] = useState(null);
+  const openChainTokenFromList = () => {
+    setOpenFromList(true);
+    setOpenToList(false);
+  };
+
+  const openChainTokenToList = () => {
+    setOpenToList(true);
+    setOpenFromList(false);
+  };
+  const closeChainTokenFromList = () => {
+    setOpenFromList(false);
+  };
+  const closeChainTokenToList = () => {
+    setOpenToList(false);
+  };
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(
+        "https://transfer.layerzero-api.com/v1/tokens",
+      );
+
+      const data = await response.json();
+
+      setTokens(data.tokens);
+
+      const uniqueChains = [
+        ...new Set(data.tokens.map((token) => token.chainKey)),
+      ];
+
+      setChains(uniqueChains);
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className={Style.swapBarBox}>
@@ -23,7 +61,6 @@ const SwapBarBox = () => {
           </p>
         </div>
 
-        {/*TransferSwap From Box*/}
         <div className={Style.swapBarBox_transferSwap_box}>
           <div
             className={`${Style.swapBarBox_transferSwap_box_transfer} ${
@@ -48,83 +85,178 @@ const SwapBarBox = () => {
             </p>
           </div>
         </div>
+
+        {/*TransferSwap From Box*/}
         <div className={Style.swapBarBox_transferSwapFrom_box}>
           <div className={Style.swapBarBox_transferSwapFrom_box_accAddress}>
             <p>Connect Solana Wallet</p>
           </div>
-          <div className={Style.swapBarBox_transferSwapFrom_box_mainSelectBox}>
-            <div
-              className={
-                Style.swapBarBox_transferSwapFrom_box_mainSelectBox_selectChain
-              }
-            >
+          {!openFromList ? (
+            <div className={Style.swapBarBox_transferSwapTo_box_mainSelectBox}>
               <div
                 className={
-                  Style.swapBarBox_transferSwapFrom_box_mainSelectBox_selectChain_nameIcon
+                  Style.swapBarBox_transferSwapTo_box_mainSelectBox_selectChain
                 }
-              >
-                <SiSolana />{" "}
-                <span>
-                  <p>SOL</p>
-                  <p>Solana</p>
-                </span>
-              </div>
-              <div
-                className={
-                  Style.swapBarBox_transferSwapFrom_box_mainSelectBox_selectChain_listIcon
-                }
-              >
-                <IoIosArrowDown />
-              </div>
-            </div>
-            <div
-              className={Style.swapBarBox_transferSwapFrom_box_selectAmountBox1}
-            >
-              <input
-                placeholder="0.00"
-                type="number"
-                className={
-                  Style.swapBarBox_transferSwapFrom_box_selectAmountBox1_typeAmount
-                }
-              />
-              <div
-                className={
-                  Style.swapBarBox_transferSwapFrom_box_selectAmountBox1_rightSection
-                }
+                onClick={() => openChainTokenFromList()}
               >
                 <div
                   className={
-                    Style.swapBarBox_transferSwapFrom_box_selectAmountBox1_rightSection_item1
+                    Style.swapBarBox_transferSwapTo_box_mainSelectBox_selectChain_nameIcon
                   }
                 >
-                  <FiLink2 />
+                  <div
+                    className={
+                      Style.swapBarBox_transferSwapTo_box_mainSelectBox_selectChain_nameIcon_svg
+                    }
+                  >
+                    {selectedFromChain
+                      ? selectedFromChain.slice(0, 2).toUpperCase()
+                      : ""}{" "}
+                  </div>
+
+                  <span>
+                    <p>
+                      {selectedFromChain
+                        ? selectedFromChain.slice(0, 3).toUpperCase()
+                        : "From"}
+                    </p>
+                    <p> {selectedFromChain || "Not Selected"}</p>
+                  </span>
                 </div>
                 <div
                   className={
-                    Style.swapBarBox_transferSwapFrom_box_selectAmountBox1_rightSection_item2
+                    Style.swapBarBox_transferSwapTo_box_mainSelectBox_selectChain_listIcon
                   }
                 >
-                  <p>Max</p>
+                  <IoIosArrowDown />
                 </div>
               </div>
-            </div>
-            <div
-              className={Style.swapBarBox_transferSwapFrom_box_selectAmountBox2}
-            >
-              <p
-                className={
-                  Style.swapBarBox_transferSwapFrom_box_selectAmountBox2_chainValue
-                }
-              >
-                $0.00
-              </p>
               <div
-                className={
-                  Style.swapBarBox_transferSwapFrom_box_selectAmountBox2_loaderBox
-                }
-              ></div>
+                className={Style.swapBarBox_transferSwapTo_box_selectAmountBox1}
+              >
+                <input
+                  placeholder="0.00"
+                  type="number"
+                  className={
+                    Style.swapBarBox_transferSwapTo_box_selectAmountBox1_typeAmount
+                  }
+                />
+                <div
+                  className={
+                    Style.swapBarBox_transferSwapTo_box_selectAmountBox1_rightSection
+                  }
+                >
+                  <div
+                    className={
+                      Style.swapBarBox_transferSwapTo_box_selectAmountBox1_rightSection_item1
+                    }
+                  >
+                    <FiLink2 />
+                  </div>
+                  <div
+                    className={
+                      Style.swapBarBox_transferSwapTo_box_selectAmountBox1_rightSection_item2
+                    }
+                  >
+                    <p>Max</p>
+                  </div>
+                </div>
+              </div>
+              <div
+                className={Style.swapBarBox_transferSwapTo_box_selectAmountBox2}
+              >
+                <p
+                  className={
+                    Style.swapBarBox_transferSwapTo_box_selectAmountBox2_chainValue
+                  }
+                >
+                  $0.00
+                </p>
+                <div
+                  className={
+                    Style.swapBarBox_transferSwapTo_box_selectAmountBox2_loaderBox
+                  }
+                ></div>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className={Style.transfer_box_ChainTokenList}>
+              <div
+                className={Style.transfer_box_ChainTokenList_searchBar}
+                onClick={() => closeChainTokenFromList()}
+              >
+                <input
+                  placeholder="Search source token and chain"
+                  type="text"
+                />
+                <div
+                  className={
+                    Style.swapBarBox_transferSwapFrom_box_mainSelectBox_selectChain_listIcon
+                  }
+                >
+                  <IoIosArrowUp />
+                </div>
+              </div>
+              {chains.map((chain) => (
+                <div
+                  className={Style.transfer_box_ChainTokenList_container}
+                  key={chain}
+                  onClick={() => {
+                    setSelectedFromChain(chain);
+                    setOpenToList(false);
+                    if (!selectedFromChain) {
+                      setOpenFromList(true);
+                    } else {
+                      setOpenFromList(false);
+                    }
+                  }}
+                >
+                  <div
+                    className={Style.transfer_box_ChainTokenList_container_left}
+                  >
+                    <div
+                      className={
+                        Style.transfer_box_ChainTokenList_container_left_icon
+                      }
+                    >
+                      {chain.slice(0, 2).toUpperCase()}
+                    </div>
+
+                    <div
+                      className={
+                        Style.transfer_box_ChainTokenList_container_left_chainTokenName
+                      }
+                    >
+                      <p
+                        className={
+                          Style.transfer_box_ChainTokenList_container_left_chainTokenName_chainTokenData
+                        }
+                      >
+                        {chain}
+                      </p>
+
+                      <p
+                        className={
+                          Style.transfer_box_ChainTokenList_container_left_chainTokenName_chainTokenName
+                        }
+                      >
+                        {chain}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div
+                    className={
+                      Style.transfer_box_ChainTokenList_container_right
+                    }
+                  >
+                    <p>0.00</p>
+                    <p>$0.00</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         {/*TransferSwap to Box*/}
@@ -146,79 +278,175 @@ const SwapBarBox = () => {
             </div>
           </div>
 
-          <div className={Style.swapBarBox_transferSwapTo_box_mainSelectBox}>
+          {!openToList ? (
             <div
-              className={
-                Style.swapBarBox_transferSwapTo_box_mainSelectBox_selectChain
-              }
+              className={Style.swapBarBox_transferSwapTo_box_mainSelectBox}
+              onClick={() => openChainTokenToList()}
             >
               <div
                 className={
-                  Style.swapBarBox_transferSwapTo_box_mainSelectBox_selectChain_nameIcon
-                }
-              >
-                <SiSolana />{" "}
-                <span>
-                  <p>SOL</p>
-                  <p>Solana</p>
-                </span>
-              </div>
-              <div
-                className={
-                  Style.swapBarBox_transferSwapTo_box_mainSelectBox_selectChain_listIcon
-                }
-              >
-                <IoIosArrowDown />
-              </div>
-            </div>
-            <div
-              className={Style.swapBarBox_transferSwapTo_box_selectAmountBox1}
-            >
-              <input
-                placeholder="0.00"
-                type="number"
-                className={
-                  Style.swapBarBox_transferSwapTo_box_selectAmountBox1_typeAmount
-                }
-              />
-              <div
-                className={
-                  Style.swapBarBox_transferSwapTo_box_selectAmountBox1_rightSection
+                  Style.swapBarBox_transferSwapTo_box_mainSelectBox_selectChain
                 }
               >
                 <div
                   className={
-                    Style.swapBarBox_transferSwapTo_box_selectAmountBox1_rightSection_item1
+                    Style.swapBarBox_transferSwapTo_box_mainSelectBox_selectChain_nameIcon
                   }
                 >
-                  <FiLink2 />
+                  <div
+                    className={
+                      Style.swapBarBox_transferSwapTo_box_mainSelectBox_selectChain_nameIcon_svg
+                    }
+                  >
+                    {selectedToChain
+                      ? selectedToChain.slice(0, 2).toUpperCase()
+                      : ""}{" "}
+                  </div>
+
+                  <span>
+                    <p>
+                      {" "}
+                      {selectedToChain
+                        ? selectedToChain.slice(0, 3).toUpperCase()
+                        : "To"}
+                    </p>
+                    <p> {selectedToChain || "Not Selected"}</p>
+                  </span>
                 </div>
                 <div
                   className={
-                    Style.swapBarBox_transferSwapTo_box_selectAmountBox1_rightSection_item2
+                    Style.swapBarBox_transferSwapTo_box_mainSelectBox_selectChain_listIcon
                   }
                 >
-                  <p>Max</p>
+                  <IoIosArrowDown onClick={() => openChainTokenToList()} />
                 </div>
               </div>
-            </div>
-            <div
-              className={Style.swapBarBox_transferSwapTo_box_selectAmountBox2}
-            >
-              <p
-                className={
-                  Style.swapBarBox_transferSwapTo_box_selectAmountBox2_chainValue
-                }
-              >
-                $0.00
-              </p>
               <div
-                className={
-                  Style.swapBarBox_transferSwapTo_box_selectAmountBox2_loaderBox
-                }
-              ></div>
+                className={Style.swapBarBox_transferSwapTo_box_selectAmountBox1}
+              >
+                <input
+                  placeholder="0.00"
+                  type="number"
+                  className={
+                    Style.swapBarBox_transferSwapTo_box_selectAmountBox1_typeAmount
+                  }
+                />
+                <div
+                  className={
+                    Style.swapBarBox_transferSwapTo_box_selectAmountBox1_rightSection
+                  }
+                >
+                  <div
+                    className={
+                      Style.swapBarBox_transferSwapTo_box_selectAmountBox1_rightSection_item1
+                    }
+                  >
+                    <FiLink2 />
+                  </div>
+                  <div
+                    className={
+                      Style.swapBarBox_transferSwapTo_box_selectAmountBox1_rightSection_item2
+                    }
+                  >
+                    <p>Max</p>
+                  </div>
+                </div>
+              </div>
+              <div
+                className={Style.swapBarBox_transferSwapTo_box_selectAmountBox2}
+              >
+                <p
+                  className={
+                    Style.swapBarBox_transferSwapTo_box_selectAmountBox2_chainValue
+                  }
+                >
+                  $0.00
+                </p>
+                <div
+                  className={
+                    Style.swapBarBox_transferSwapTo_box_selectAmountBox2_loaderBox
+                  }
+                ></div>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div
+              className={Style.transfer_box_ChainTokenList}
+              onClick={() => closeChainTokenToList()}
+            >
+              <div className={Style.transfer_box_ChainTokenList_searchBar}>
+                <input
+                  placeholder="Search source token and chain"
+                  type="text"
+                />
+                <div
+                  className={
+                    Style.swapBarBox_transferSwapFrom_box_mainSelectBox_selectChain_listIcon
+                  }
+                >
+                  <IoIosArrowUp />
+                </div>
+              </div>
+              {chains.map((chain) => (
+                <div
+                  className={Style.transfer_box_ChainTokenList_container}
+                  key={chain}
+                  onClick={() => {
+                    setSelectedToChain(chain);
+                    setOpenToList(false);
+                    if (!selectedFromChain) {
+                      setOpenFromList(true);
+                    } else {
+                      setOpenFromList(false);
+                    }
+                  }}
+                >
+                  <div
+                    className={Style.transfer_box_ChainTokenList_container_left}
+                  >
+                    <div
+                      className={
+                        Style.transfer_box_ChainTokenList_container_left_icon
+                      }
+                    >
+                      {chain.slice(0, 2).toUpperCase()}
+                    </div>
+
+                    <div
+                      className={
+                        Style.transfer_box_ChainTokenList_container_left_chainTokenName
+                      }
+                    >
+                      <p
+                        className={
+                          Style.transfer_box_ChainTokenList_container_left_chainTokenName_chainTokenData
+                        }
+                      >
+                        {chain}
+                      </p>
+
+                      <p
+                        className={
+                          Style.transfer_box_ChainTokenList_container_left_chainTokenName_chainTokenName
+                        }
+                      >
+                        {chain}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div
+                    className={
+                      Style.transfer_box_ChainTokenList_container_right
+                    }
+                  >
+                    <p>0.00</p>
+                    <p>$0.00</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className={Style.connectWalletBtn}>
