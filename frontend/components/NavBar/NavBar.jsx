@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Style from "./NavBar.module.css";
 import { Link } from "react-router-dom";
 import nexaBridgeLogo from "../../img/nexaBridgeLogo.svg";
@@ -10,7 +10,9 @@ import { FaTelegramPlane, FaLinkedin } from "react-icons/fa";
 import Button from "../Button/Button";
 import { LuRabbit } from "react-icons/lu";
 
+import { NexaBridgeContext } from "../../src/Context/NexaBridgeContext";
 const NavBar = () => {
+  const { currentAccount, connectWallet } = useContext(NexaBridgeContext);
   const [icon, openIcon] = useState(false);
   const openResources = () => {
     if (!icon) {
@@ -19,7 +21,9 @@ const NavBar = () => {
       openIcon(false);
     }
   };
-
+  const shortenAddress = (address) => {
+    return `${address.slice(0, 6)}...${address.slice(-4)}`;
+  };
   return (
     <>
       <div className={Style.navbar}>
@@ -87,11 +91,22 @@ const NavBar = () => {
           </div>
 
           <div className={Style.navbar_container_right}>
-            <Button
-              btnName="Connect wallet"
-              icon={<LuRabbit />}
-              className={Style.navbar_container_account_btn}
-            ></Button>
+            {currentAccount ? (
+              <div className={Style.wallet_address}>
+                <span>
+                  <LuRabbit />
+                </span>
+                {shortenAddress(currentAccount)}
+              </div>
+            ) : (
+              <Button
+                btnName="Connect wallet"
+                icon={<LuRabbit />}
+                className={Style.navbar_container_account_btn}
+                handleClick={connectWallet}
+              ></Button>
+            )}
+
             <div
               className={Style.navbar_container_right_menu}
               onClick={() => openResources()}

@@ -54,6 +54,22 @@
   font-size: 0.9rem;
   text-align: center;
 }
+
+.wallet_address {
+  width: 8rem;
+  height: 1.5rem;
+  text-align: center;
+  padding: 0.1rem 0;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(79, 140, 255, 0.12);
+  background-color: #151c2b;
+  font-size: 0.8rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
 .navbar_container_right_menu {
   display: none;
 }

@@ -6,22 +6,25 @@ import AboutUs from "./pages/AboutUs";
 
 import "./App.css";
 import Stake from "./pages/Stake";
+import { NexaBridgeProvider } from "./Context/NexaBridgeContext";
 
 function App() {
   return (
-    <div className="app">
-      <NavBar />
+    <NexaBridgeProvider>
+      <div className="app">
+        <NavBar />
 
-      <main className="main">
-        <Routes>
-          <Route path="/" element={<SwapBarBox />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/stake" element={<Stake />} />
-        </Routes>
-      </main>
+        <main className="main">
+          <Routes>
+            <Route path="/" element={<SwapBarBox />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/stake" element={<Stake />} />
+          </Routes>
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </NexaBridgeProvider>
   );
 }
 export default App;

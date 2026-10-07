@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Style from "./swapBarBox.module.css";
 import { TbSettings2 } from "react-icons/tb";
 import { TbTransferIn } from "react-icons/tb";
 import { RiSwap2Line } from "react-icons/ri";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import { FiLink2 } from "react-icons/fi";
+
 const SwapBarBox = () => {
   const [selected, setSelected] = useState(0);
   const [openFromList, setOpenFromList] = useState(false);

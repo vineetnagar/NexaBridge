@@ -321,7 +321,6 @@ describe("NextBridge", function () {
         bridge.connect(owner).setRelayer(ethers.ZeroAddress),
       ).to.be.revertedWith("Invalid relayer address");
     });
-
     it("Should not allow NextBridge to deploy with zero token address", async function () {
       const { ethers } = await network.connect();
 
