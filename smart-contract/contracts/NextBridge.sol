@@ -90,6 +90,8 @@ contract NextBridge is Ownable {
             _amount
         );
 
+        IERC20(tokenAddress).safeTransfer(feeRecipient, fee);
+
         bridges[currentNonce] = BridgeTransaction({
             sender: msg.sender,
             recipient: _recipient,

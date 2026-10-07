@@ -13,6 +13,7 @@ const SwapBarBox = () => {
   const [chains, setChains] = useState([]);
   const [selectedFromChain, setSelectedFromChain] = useState(null);
   const [selectedToChain, setSelectedToChain] = useState(null);
+  const [searchChain, setSearchChain] = useState("");
   const openChainTokenFromList = () => {
     setOpenFromList(true);
     setOpenToList(false);
@@ -28,6 +29,10 @@ const SwapBarBox = () => {
   const closeChainTokenToList = () => {
     setOpenToList(false);
   };
+
+  const filteredChains = chains.filter((chain) =>
+    chain.toLowerCase().includes(searchChain.toLowerCase()),
+  );
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
@@ -181,23 +186,25 @@ const SwapBarBox = () => {
             </div>
           ) : (
             <div className={Style.transfer_box_ChainTokenList}>
-              <div
-                className={Style.transfer_box_ChainTokenList_searchBar}
-                onClick={() => closeChainTokenFromList()}
-              >
+              <div className={Style.transfer_box_ChainTokenList_searchBar}>
                 <input
                   placeholder="Search source token and chain"
                   type="text"
+                  value={searchChain}
+                  onChange={(e) => setSearchChain(e.target.value)}
+                  className={
+                    Style.swapBarBox_transferSwapTo_box_selectAmountBox1_typeAmount
+                  }
                 />
                 <div
                   className={
                     Style.swapBarBox_transferSwapFrom_box_mainSelectBox_selectChain_listIcon
                   }
                 >
-                  <IoIosArrowUp />
+                  <IoIosArrowUp onClick={() => closeChainTokenFromList()} />
                 </div>
               </div>
-              {chains.map((chain) => (
+              {filteredChains.map((chain) => (
                 <div
                   className={Style.transfer_box_ChainTokenList_container}
                   key={chain}
@@ -370,24 +377,26 @@ const SwapBarBox = () => {
               </div>
             </div>
           ) : (
-            <div
-              className={Style.transfer_box_ChainTokenList}
-              onClick={() => closeChainTokenToList()}
-            >
+            <div className={Style.transfer_box_ChainTokenList}>
               <div className={Style.transfer_box_ChainTokenList_searchBar}>
                 <input
                   placeholder="Search source token and chain"
                   type="text"
+                  value={searchChain}
+                  onChange={(e) => setSearchChain(e.target.value)}
+                  className={
+                    Style.swapBarBox_transferSwapTo_box_selectAmountBox1_typeAmount
+                  }
                 />
                 <div
                   className={
                     Style.swapBarBox_transferSwapFrom_box_mainSelectBox_selectChain_listIcon
                   }
                 >
-                  <IoIosArrowUp />
+                  <IoIosArrowUp onClick={() => closeChainTokenToList()} />
                 </div>
               </div>
-              {chains.map((chain) => (
+              {filteredChains.map((chain) => (
                 <div
                   className={Style.transfer_box_ChainTokenList_container}
                   key={chain}
