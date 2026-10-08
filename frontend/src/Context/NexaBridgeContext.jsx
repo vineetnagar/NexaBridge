@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
+import Web3Modal from "web3modal";
 
 export const NexaBridgeContext = React.createContext();
 
@@ -53,6 +54,8 @@ export const NexaBridgeProvider = ({ children }) => {
       console.log("Wallet connection error", error);
     }
   };
+
+  const getTokenBalance = async () => {};
   useEffect(() => {
     checkIfWalletConnected();
   }, []);
